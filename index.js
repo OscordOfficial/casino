@@ -1,1 +1,1 @@
-const { Client, Discord } = requare("discord.js")
+const { Client, Discord } = requare("discord.js");
