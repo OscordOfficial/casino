@@ -5,16 +5,6 @@ const oscord = new Client({
     partials: Object.keys(Partials)
 });
 
-try {
-    console.log('Started refreshing application (/) commands.');
-  
-    await rest.put(Routes.applicationCommands(CLIENT_ID), { body: commands });
-  
-    console.log('Successfully reloaded application (/) commands.');
-  } catch (error) {
-    console.error(error);
-  }
-
   oscord.on('ready', () => {
     console.log(`successfully logged in **(${oscord.user.tag})**`)
   });
@@ -23,5 +13,9 @@ try {
   oscord.on('interactionCreate', async interaction => {
     if(!interaction.isChatInputCommand()) return;
 
-    if(interaction.commandName === 'ping') 
-  })
+    if(interaction.commandName === 'ping') {
+        await interaction.reply('pong!');
+    }
+  });
+
+  oscord.login("MTExMDMwNzU3MDM0Nzk0NjA4NA.Gk7evC.zjBWeof0CD8mE7cPl3kNcu-OFrjXv0xuS3-CAE")
